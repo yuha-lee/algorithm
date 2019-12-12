@@ -5,33 +5,30 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 var maxPalindrome = 0;
-var isPalindrome  = false;
 
-function checkPalindrome(input) {
-    for (var x = 0; x < input.length / 2; x++) {
-        if (input.charAt(x) != input.charAt(input.length - 1 - x)) {
-            isPalindrome = false;
-            break;
-        } else {
-            isPalindrome = true;
+function isPalindrome(numStr){
+    for (var k = 0; k < numStr.length / 2; k++){
+        if (numStr.charAt(k) != numStr.charAt(numStr.length - 1 - k) ){
+            return false;
         }
     }
+    return true;
 }
 
-for (var i = 100; i < 1000; i++) {
-    for (var j = 100; j < 1000; j++) {
+for (var i = 100; i <= 999; i++){
+    for (var j = 100; j <= 999; j++){
 
-        var num   = i * j;
-        var input = String(num);
+        var num = i * j;
+        var numStr = String(num);
 
-        checkPalindrome(input);
-
-        if (isPalindrome && num > maxPalindrome) {
+        if (isPalindrome(numStr) && num > maxPalindrome){
             maxPalindrome = num;
         }
     }
 }
 
 console.log(maxPalindrome);
+
+
 
 
